@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        {% if predicted_price %}
+        <p>The predicted price of the car is ${{ predicted_price }}</p>
+        {% endif %} {% if damage_detected is not none %}
+        <p>Damage detected: {{ damage_detected }}</p>
+        {% if damage_detected %}
+        <p>Damage was found in the uploaded image.</p>
+        {% else %}
+        <p>No damage was found in the uploaded image.</p>
+        {% endif %} {% endif %}
+        <a href="{{ url_for('index') }}">Go back</a>
+    </div>
+</body>
+
+</html>
